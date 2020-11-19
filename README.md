@@ -1,2 +1,2 @@
 # Turing Machine
-Computer Theory... Work from UENP
+ - Computer Theory... Work from UENP
