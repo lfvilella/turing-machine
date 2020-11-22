@@ -1,4 +1,4 @@
-""" Tape
+"""Tape
 
 This module is about the turing machine Tape
 
@@ -9,7 +9,7 @@ TODO: describe more about it...
 class Tape:
     DIRECTION_CHOICES = {'L': 'Left', 'R': 'Right', 'S': 'Stop'}
 
-    def __init__(self, _input, blank_symbol):
+    def __init__(self, _input: str, blank_symbol: str):
         self._blank_symbol = blank_symbol
         self._position = 0
         self._tape = {index: item for index, item in enumerate(_input)}
@@ -17,8 +17,9 @@ class Tape:
     def __str__(self):
         return ''.join([item for item in self._tape.values()])
 
-    def is_valid_direction(direction):
-        return direction in DIRECTION_CHOICES.keys()
+    @staticmethod
+    def is_valid_direction(direction: str):
+        return direction in Tape.DIRECTION_CHOICES.keys()
 
     def move_to_left(self):
         self._position -= 1
