@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Lint with flake8 and Run tests
+        run: |
+          cd python
+          sudo pip3 install flake8
+          sudo pip3 install pytest
+          flake8 .
+          pytest .
