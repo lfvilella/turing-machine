@@ -7,28 +7,20 @@ TODO: describe more about it...
 
 import abc
 
-from . import tape, transition
+from . import tape
 
 
 class UniversalTuringMachine(metaclass=abc.ABCMeta):
     def __init__(
         self,
-        initial_state=None,
-        accepting_states=None,
-        blank_symbol=None,
+        initial_state='q0',
+        final_state='qf',
+        blank_symbol='#',
         tape_data='',
-        transition_data=None,
     ):
-        self._current_state = initial_state
-        self._accepting_states = accepting_states if accepting_states else []
         self._tape = tape.Tape(tape_data, blank_symbol)
-        self._transitions = transition.TransitionTable()
-
-        if transition_data:
-            for transition_string in transition_data:
-                self._transitions.add_transition(
-                    transition.Transition.from_data_string(transition_string)
-                )
+        self._current_state = initial_state
+        self._final_state = final_state
 
     @abc.abstractclassmethod
     def run(self):
