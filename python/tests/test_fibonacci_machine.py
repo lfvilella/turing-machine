@@ -1,7 +1,7 @@
-from turing.machines import triple_balancing
+from turing.machines import fibonacci_machine
 
 
-class TestTripleBalancing:
+class TestTripleBalancingMachine:
     def _build_machine(
         self,
         initial_state='q0',
@@ -9,69 +9,81 @@ class TestTripleBalancing:
         tape_data=None,
         blank_symbol='#',
     ):
-        return triple_balancing.TripleBalancing(
+        return fibonacci_machine.FibonacciMachine(
             initial_state=initial_state,
             final_state=final_state,
             blank_symbol=blank_symbol,
             tape_data=tape_data,
         )
 
-    def test_accept_aaabbbccc(self):
-        tape_data = 'a|a|a|b|b|b|c|c|c'
+    def test_accept_right_sequence(self):
+        tape_data = '1|2|3|5|8|13|21'
 
         machine = self._build_machine(tape_data=tape_data)
         result = machine.run()
         expected_result = {
-            'tape': 'A|A|A|B|B|B|C|C|C|#',
-            'message': 'Work done!',
+            'tape': '1|2|3|5|8|13|21|#',
+            'message': 'Work done! Is fibonacci.',
             'output': 'Accepted',
         }
         assert expected_result == result
 
-    def test_accept_aaaaaabbbbbbcccccc(self):
-        tape_data = 'a|a|a|a|a|a|b|b|b|b|b|b|c|c|c|c|c|c'
+    def test_2_accept_right_sequence(self):
+        tape_data = '1|2|3|5|8|13|21|34|55'
 
         machine = self._build_machine(tape_data=tape_data)
         result = machine.run()
         expected_result = {
-            'tape': 'A|A|A|A|A|A|B|B|B|B|B|B|C|C|C|C|C|C|#',
-            'message': 'Work done!',
+            'tape': '1|2|3|5|8|13|21|34|55|#',
+            'message': 'Work done! Is fibonacci.',
             'output': 'Accepted',
         }
         assert expected_result == result
 
-    def test_reject_aabbccc(self):
-        tape_data = 'a|a|b|b|c|c|c'
+    def test_reject_invalid_sequence(self):
+        tape_data = '1|2|3|5|7|13'
 
         machine = self._build_machine(tape_data=tape_data)
         result = machine.run()
         expected_result = {
-            'tape': 'A|A|B|B|C|C|c|#',
-            'message': 'Ops something is not OK',
+            'tape': '1|2|3|5|7|13|#',
+            'message': 'Is it not fibonacci',
             'output': 'Rejected',
         }
         assert expected_result == result
 
-    def test_reject_abbbccc(self):
-        tape_data = 'a|b|b|b|c|c|c'
+    def test_2_reject_invalid_sequence(self):
+        tape_data = '2|3|13'
 
         machine = self._build_machine(tape_data=tape_data)
         result = machine.run()
         expected_result = {
-            'tape': 'A|B|b|b|C|c|c|#',
-            'message': 'Ops something is not OK',
+            'tape': '2|3|13|#',
+            'message': 'Is it not fibonacci',
             'output': 'Rejected',
         }
         assert expected_result == result
 
-    def test_reject_aacc(self):
-        tape_data = 'a|a|c|c'
+    def test_3_reject_invalid_sequence(self):
+        tape_data = '1|3|5|7|13'
 
         machine = self._build_machine(tape_data=tape_data)
         result = machine.run()
         expected_result = {
-            'tape': 'A|a|c|c|#',
-            'message': 'Ops something is not OK',
+            'tape': '1|3|5|7|13|#',
+            'message': 'Is it not fibonacci',
+            'output': 'Rejected',
+        }
+        assert expected_result == result
+
+    def test_reject_char_sequence(self):
+        tape_data = '1|2|A|B'
+
+        machine = self._build_machine(tape_data=tape_data)
+        result = machine.run()
+        expected_result = {
+            'tape': '1|2|A|B|#',
+            'message': 'Hey Human, I just accept numbers.',
             'output': 'Rejected',
         }
         assert expected_result == result
