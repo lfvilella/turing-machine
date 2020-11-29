@@ -108,7 +108,7 @@ class TripleBalancingMachine(universal_machine.UniversalTuringMachine):
             else:
                 return {
                     'tape': str(self._tape),
-                    'message': 'Ops something is not OK',
+                    'message': 'Ops... Is not a triple balancing.',
                     'output': 'Rejected',
                 }
 

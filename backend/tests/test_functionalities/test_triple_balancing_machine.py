@@ -47,7 +47,7 @@ class TestTripleBalancingMachine:
         result = machine.run()
         expected_result = {
             'tape': 'A|A|B|B|C|C|c|#',
-            'message': 'Ops something is not OK',
+            'message': 'Ops... Is not a triple balancing.',
             'output': 'Rejected',
         }
         assert expected_result == result
@@ -59,7 +59,7 @@ class TestTripleBalancingMachine:
         result = machine.run()
         expected_result = {
             'tape': 'A|B|b|b|C|c|c|#',
-            'message': 'Ops something is not OK',
+            'message': 'Ops... Is not a triple balancing.',
             'output': 'Rejected',
         }
         assert expected_result == result
@@ -71,7 +71,7 @@ class TestTripleBalancingMachine:
         result = machine.run()
         expected_result = {
             'tape': 'A|a|c|c|#',
-            'message': 'Ops something is not OK',
+            'message': 'Ops... Is not a triple balancing.',
             'output': 'Rejected',
         }
         assert expected_result == result
