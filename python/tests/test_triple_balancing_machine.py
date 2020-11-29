@@ -1,7 +1,7 @@
 from turing.machines import triple_balancing_machine
 
 
-class TestTripleBalancing:
+class TestTripleBalancingMachine:
     def _build_machine(
         self,
         initial_state='q0',
@@ -9,7 +9,7 @@ class TestTripleBalancing:
         tape_data=None,
         blank_symbol='#',
     ):
-        return triple_balancing_machine.TripleBalancing(
+        return triple_balancing_machine.TripleBalancingMachine(
             initial_state=initial_state,
             final_state=final_state,
             blank_symbol=blank_symbol,

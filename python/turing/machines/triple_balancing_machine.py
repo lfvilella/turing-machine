@@ -1,7 +1,14 @@
+"""Triple Balancing Machine
+
+This machine change solved triple balancing problem.
+
+For example: 'a|a|a|b|b|b|c|c|c'
+"""
+
 from .. import universal_machine
 
 
-class TripleBalancing(universal_machine.UniversalTuringMachine):
+class TripleBalancingMachine(universal_machine.UniversalTuringMachine):
     def run(self):
         while self._current_state != self._final_state:
             symbol_at_head = self._tape.get_value()
