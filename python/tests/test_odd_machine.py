@@ -22,8 +22,12 @@ class TestOddMachine:
         machine = self._build_machine(tape_data=tape_data)
         result = machine.run()
 
-        expected_tape_result = '1|1|3|77|1|#'
-        assert expected_tape_result == result['tape']
+        expected_result = {
+            'tape': '1|1|3|77|1|#',
+            'message': 'Work done!',
+            'output': 'Accepted',
+        }
+        assert expected_result == result
 
     def test_odd_numbers_result_any_change(self):
         tape_data = '1|3|5|7|11'
@@ -31,8 +35,12 @@ class TestOddMachine:
         machine = self._build_machine(tape_data=tape_data)
         result = machine.run()
 
-        expected_tape_result = f'{tape_data}|#'
-        assert expected_tape_result == result['tape']
+        expected_result = {
+            'tape': f'{tape_data}|#',
+            'message': 'Work done!',
+            'output': 'Accepted',
+        }
+        assert expected_result == result
 
     def test_char_raises(self):
         tape_data = '1|3|E|7|A'
@@ -40,5 +48,9 @@ class TestOddMachine:
         machine = self._build_machine(tape_data=tape_data)
         result = machine.run()
 
-        expected_tape_result = {'error': 'Hey Human, I just accept numbers.'}
-        assert expected_tape_result == result
+        expected_result = {
+            'tape': '1|3|E|7|A|#',
+            'message': 'Hey Human, I just accept numbers.',
+            'output': 'Rejected',
+        }
+        assert expected_result == result
