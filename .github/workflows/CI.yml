@@ -15,7 +15,7 @@ jobs:
 
       - name: Lint with flake8 and Run tests
         run: |
-          cd python
+          cd backend
           sudo pip3 install flake8
           sudo pip3 install pytest
           flake8 .
