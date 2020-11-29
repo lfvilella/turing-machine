@@ -64,6 +64,18 @@ class TestTripleBalancingMachine:
         }
         assert expected_result == result
 
+    def test_3_reject_invalid_sequence(self):
+        tape_data = '1|3|5|7|13'
+
+        machine = self._build_machine(tape_data=tape_data)
+        result = machine.run()
+        expected_result = {
+            'tape': '1|3|5|7|13|#',
+            'message': 'Is it not fibonacci',
+            'output': 'Rejected',
+        }
+        assert expected_result == result
+
     def test_reject_char_sequence(self):
         tape_data = '1|2|A|B'
 
