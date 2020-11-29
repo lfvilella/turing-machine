@@ -1,4 +1,4 @@
-from turing.machines import triple_balancing
+from turing.machines import triple_balancing_machine
 
 
 class TestTripleBalancing:
@@ -9,7 +9,7 @@ class TestTripleBalancing:
         tape_data=None,
         blank_symbol='#',
     ):
-        return triple_balancing.TripleBalancing(
+        return triple_balancing_machine.TripleBalancing(
             initial_state=initial_state,
             final_state=final_state,
             blank_symbol=blank_symbol,
