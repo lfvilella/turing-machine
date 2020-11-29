@@ -47,11 +47,11 @@ class FibonacciMachine(universal_machine.UniversalTuringMachine):
 
             if (
                 not self._is_fibonacci(number, memory_1, memory_2)
-                and self._tape._position > 0
+                and self._tape._position > 1
             ):
                 return {
                     'tape': str(self._tape),
-                    'message': 'Ops something is not OK',
+                    'message': 'Is it not fibonacci',
                     'output': 'Rejected',
                 }
 
