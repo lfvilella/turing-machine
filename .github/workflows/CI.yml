@@ -12,11 +12,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Lint with flake8 and Run tests
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install dependencies
         run: |
-          cd backend
-          sudo pip3 install flake8
-          sudo pip3 install pytest
+          python -m pip install --upgrade pip
+          if [ -f backend/requirements-dev.txt ]; then pip install -r backend/requirements-dev.txt; fi
+      - name: Lint with flake8
+        run: |
           flake8 .
+      - name: Test with pytest
+        run: |
           pytest .
