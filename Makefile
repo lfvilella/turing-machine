@@ -10,7 +10,7 @@ build: delete-container ## Build the container
 	@docker-compose up --build -d
 
 test: start ## Run tests
-	@docker-compose exec backend pytest
+	@docker-compose exec backend pytest backend
 
 format: ## Format the code
 	@docker-compose exec backend /bin/bash -c "isort backend && black -l 79 backend"
@@ -22,7 +22,7 @@ cmd: start ## Access bash
 	@docker-compose exec backend /bin/bash
 
 up: start ## Start Fastapi dev server
-	@docker-compose exec backend /bin/bash -c 'cd backend && uvicorn app.api:app --host 0.0.0.0 --reload'
+	@docker-compose exec backend uvicorn backend.app.api:app --host 0.0.0.0 --reload
 
 start:
 	@docker-compose start

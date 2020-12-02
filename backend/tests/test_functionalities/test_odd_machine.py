@@ -1,4 +1,4 @@
-from turing.machines import odd_machine
+from app.turing.machines import odd_machine
 
 
 class TestOddMachine:

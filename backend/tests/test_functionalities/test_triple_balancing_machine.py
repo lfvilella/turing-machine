@@ -1,4 +1,4 @@
-from turing.machines import triple_balancing_machine
+from app.turing.machines import triple_balancing_machine
 
 
 class TestTripleBalancingMachine:

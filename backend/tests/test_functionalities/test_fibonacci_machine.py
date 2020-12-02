@@ -1,4 +1,4 @@
-from turing.machines import fibonacci_machine
+from app.turing.machines import fibonacci_machine
 
 
 class TestTripleBalancingMachine:

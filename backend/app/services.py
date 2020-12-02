@@ -1,4 +1,4 @@
-from turing.machines import (
+from .turing.machines import (
     fibonacci_machine,
     odd_machine,
     triple_balancing_machine,

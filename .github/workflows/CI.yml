@@ -22,7 +22,7 @@ jobs:
           if [ -f backend/requirements-dev.txt ]; then pip install -r backend/requirements-dev.txt; fi
       - name: Lint with flake8
         run: |
-          flake8 .
+          flake8 backend
       - name: Test with pytest
         run: |
-          pytest .
+          pytest backend
