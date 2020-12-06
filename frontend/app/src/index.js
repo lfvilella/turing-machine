@@ -8,7 +8,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Card from './cards/multiple_cards';
 
 ReactDOM.render(
-    <Card />,
+  <Card />,
   document.getElementById('root')
 );
 
