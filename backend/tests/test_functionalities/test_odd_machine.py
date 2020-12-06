@@ -26,6 +26,13 @@ class TestOddMachine:
             'tape': '1|1|3|77|1|#',
             'message': 'Work done!',
             'output': 'Accepted',
+            'transitions': [
+                {'q0->q1': '1,1,R'},
+                {'q1->q2': '2,1,R'},
+                {'q2->q3': '3,3,R'},
+                {'q3->q4': '77,77,R'},
+                {'q4->q5': '10,1,R'},
+            ],
         }
         assert expected_result == result
 
@@ -36,9 +43,16 @@ class TestOddMachine:
         result = machine.run()
 
         expected_result = {
-            'tape': f'{tape_data}|#',
+            'tape': '1|3|5|7|11|#',
             'message': 'Work done!',
             'output': 'Accepted',
+            'transitions': [
+                {'q0->q1': '1,1,R'},
+                {'q1->q2': '3,3,R'},
+                {'q2->q3': '5,5,R'},
+                {'q3->q4': '7,7,R'},
+                {'q4->q5': '11,11,R'},
+            ],
         }
         assert expected_result == result
 
@@ -52,5 +66,10 @@ class TestOddMachine:
             'tape': '1|3|E|7|A|#',
             'message': 'Hey Human, I just accept numbers.',
             'output': 'Rejected',
+            'transitions': [
+                {'q0->q1': '1,1,R'},
+                {'q1->q2': '3,3,R'},
+                {'fail': '*,*,*'},
+            ],
         }
         assert expected_result == result
