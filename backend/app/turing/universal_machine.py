@@ -21,7 +21,11 @@ class UniversalTuringMachine(metaclass=abc.ABCMeta):
         self._tape = tape.Tape(tape_data, blank_symbol)
         self._current_state = initial_state
         self._final_state = final_state
+        self._transitions = []
 
     @abc.abstractclassmethod
     def run(self):
         pass
+
+    def set_transitions(self, key, value):
+        self._transitions.append({key: value})
