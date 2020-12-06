@@ -32,6 +32,7 @@ class TestOddMachine:
                 {'q2->q3': '3,3,R'},
                 {'q3->q4': '77,77,R'},
                 {'q4->q5': '10,1,R'},
+                {'q5->qf': '#,#,R'},
             ],
         }
         assert expected_result == result
@@ -52,6 +53,7 @@ class TestOddMachine:
                 {'q2->q3': '5,5,R'},
                 {'q3->q4': '7,7,R'},
                 {'q4->q5': '11,11,R'},
+                {'q5->qf': '#,#,R'},
             ],
         }
         assert expected_result == result

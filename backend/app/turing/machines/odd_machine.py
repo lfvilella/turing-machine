@@ -41,6 +41,9 @@ class OddMachine(universal_machine.UniversalTuringMachine):
 
             symbol_at_head = self._tape.get_value()
 
+        self.set_transitions(  # set final transition
+            key=f'q{state_counter}->qf', value='#,#,R',
+        )
         return {
             'tape': str(self._tape),
             'message': 'Work done!',
