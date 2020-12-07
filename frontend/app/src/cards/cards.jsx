@@ -6,16 +6,30 @@ axios.defaults.baseURL = 'http://localhost:8000/api/v.1';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const Card = props => {
-  var tapeData = ''
+  let tapeData = '';
+  let machineResult = '';
 
   function sendTape() {
     return axios.post(
       `/machine/${props.pathUrl}`, { "tape": tapeData }
     ).then((response) => {
+      machineResult = response;
       console.log(response);
     }).catch((error) => {
       console.log(error);
     })
+  }
+
+  const renderResult = () => {
+    if (machineResult !== '') {
+      return (
+        <div>
+          <br />
+          <h6>Saida:</h6>
+          <p>{machineResult}</p>
+        </div>
+      )
+    }
   }
 
   function handleTapeData(e) {
@@ -41,10 +55,7 @@ const Card = props => {
           <br /><br />
           <button onClick={sendTape} className="btn btn-outline-success">Run Machine</button>
         </div>
-        {/* <br />
-                <div>
-                    <h6>Saida:</h6>
-                </div> */}
+        {renderResult()}
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 import fastapi
 
 from . import schemas, services
@@ -7,6 +8,19 @@ _VERSION = '/api/v.1'
 
 app = fastapi.FastAPI(
     openapi_url=_VERSION + '/openapi.json', docs_url=_VERSION + '/docs',
+)
+
+origins = [
+    'http://localhost',
+    'http://localhost:3000',
+]
+
+app.add_middleware(  # to able frontend
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
 )
 
 
