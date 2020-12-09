@@ -38,3 +38,8 @@ body {
 .card-img-top:hover {
     transform: scale(1.8);
 }
+
+.output {
+    margin-top: 20px;
+    background-color: #adadad;
+}
