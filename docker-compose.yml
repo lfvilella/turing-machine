@@ -10,12 +10,26 @@ services:
     stdin_open: true
     tty: true
     command: ${RUNSERVER:-uvicorn backend.app.api:app --host 0.0.0.0}
-    # networks:
-      # - backend-network
+    networks:
+      - backend-network
     restart: ${DOCKER_RESTART:-no}
 
-# networks:
-#   backend-network:
-#   nginx-gateway:
-#       external:
-#           name: nginx-gateway
+  frontend:
+    build: frontend
+    ports:
+      - "${FRONTEND_HOST_PORT}3000"
+    volumes:
+      - /app/node_modules
+      - ./frontend/app:/app
+    depends_on:
+      - backend
+    links:
+      - backend:backend_api
+    stdin_open: true
+    tty: true
+    command: ${RUNFRONTEND:-/bin/bash -c "npm i && npm start"}
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
