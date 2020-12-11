@@ -7,6 +7,13 @@ UENP's work on the subject of computer theory.
 
 *Needs docker installed.*
 
+Tech Stack:
+
+- Python
+- Fastapi
+- ReactJS
+- Docker / docker-compose
+
 ## Running locally
 Choose one these options to build the docker container.
 
