@@ -27,6 +27,7 @@ $ docker-compose logs -f --tail=100 backend
 ```
 
 Open: http://localhost:3000
+
 Docs: http://localhost:8000/api/v.1/docs
 
 Optional:
