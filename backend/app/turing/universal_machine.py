@@ -1,8 +1,9 @@
 """Universal Turing Machine
 
-This module is about the UTM
+This module is about the UTM.
 
-TODO: describe more about it...
+All machines what use this generic class is
+  forced to implement the programing function.
 """
 
 import abc

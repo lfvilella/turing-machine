@@ -25,6 +25,11 @@ const Card = props => {
     return (
       <div className='output'>
         <h6>Saida: <b>{machineResult.output}</b></h6>
+        <ul>
+          {(machineResult.transitions || []).map(transition => (
+            <li>{JSON.stringify(transition)}</li>
+          ))}
+        </ul>
         <p>{JSON.stringify(machineResult)}</p>
       </div>
     )
