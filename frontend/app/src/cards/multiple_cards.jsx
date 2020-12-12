@@ -14,7 +14,7 @@ class multipleCards extends Component {
             <Card
               imgsrc={img_turing_machine_I}
               title="Fibonacci Machine"
-              description="Esta máquina valida sequências de fibonacci."
+              description="This machine validates fibonacci sequences."
               pathUrl="fibonacci"
               placeholder="1|2|3|5|8|13|21" />
           </div>
@@ -22,7 +22,7 @@ class multipleCards extends Component {
             <Card
               imgsrc={img_turing_machine_II}
               title="Triple Balancing Machine"
-              description="Esta máquina valida o problema básico de triplo balanceamento."
+              description="This machine validates the basic triple balancing problem."
               pathUrl="triple_balancing"
               placeholder="a|a|b|b|c|c" />
           </div>
@@ -30,7 +30,8 @@ class multipleCards extends Component {
             <Card
               imgsrc={img_turing_machine_III}
               title="Odd Machine"
-              description="Esta máquina transforma todo número par em '1'"
+              description="
+              This machine turns every even number into '1'"
               pathUrl="odd"
               placeholder="1|2|3|4|5|10|20" />
           </div>
