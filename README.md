@@ -22,7 +22,7 @@ $ make build
 ```
 or
 ```
-$ [ -f .env ] || cp template.env .env
+$ cp template.env .env
 $ docker-compose up --build -d
 ```
 *At first time this build lates a little minute, see the logs to verify what's happening...*
