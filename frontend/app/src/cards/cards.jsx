@@ -24,13 +24,16 @@ const Card = props => {
   const renderResult = () => {
     return (
       <div className='output'>
-        <h6>Saida: <b>{machineResult.output}</b></h6>
-        <ul>
+        <h6 className="OutputText">Output: <b>{machineResult.output}</b></h6>
+        <ul className="TransitionsText">
+          Transitions: 
           {(machineResult.transitions || []).map(transition => (
             <li>{JSON.stringify(transition)}</li>
           ))}
         </ul>
-        <p>{JSON.stringify(machineResult)}</p>
+        <p className="TapeText">Tape: {machineResult.tape}</p>
+        <p className="MessageText">Message: {machineResult.message}</p>
+        {/* <p>{JSON.stringify(machineResult)}</p> */}
       </div>
     )
   }
@@ -47,12 +50,13 @@ const Card = props => {
         </p>
         <hr />
         <div>
-          <h6>Insira na fita abaixo para testar a máquina!</h6>
+          <h6>Insert the tape below to test the machine!</h6>
           {/* <input type="text" name="" id="" placeholder={props.placeholder} /> */}
-          <input type="text" name="tapeData" value={tapeData} onChange={e => setTapeData(e.target.value)} placeholder={props.placeholder} />
+          <input className="input" type="text" name="tapeData" value={tapeData} onChange={e => setTapeData(e.target.value)} placeholder={props.placeholder} />
           <br /><br />
           <button onClick={sendTape} className="btn btn-outline-success">Run Machine</button>
         </div>
+        <hr/>
         {renderResult()}
       </div>
     </div>
