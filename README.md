@@ -41,3 +41,5 @@ Optional:
 ```
 $ make test
 ```
+
+[Formal Docs](https://docs.google.com/document/d/1nlEpVr7OHQRJP5lWXS8RJxbuFCGRZvcVUT6BC7LsM2A/edit?usp=sharing)
